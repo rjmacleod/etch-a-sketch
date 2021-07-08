@@ -1,6 +1,6 @@
 Who made this:
 =============
-Roderick MacLeod
+Roderick MacLeod,
 github: rjmacleod
 
 What this is:
@@ -11,4 +11,9 @@ https://www.theodinproject.com/paths/foundations/courses/foundations/lessons/etc
 
 How it Works:
 =============
-Coming Soon
+Mouse over the cells to change their color. Click reset to start a new canvas and set the
+number of cells per side. Ex: 16 cells per side (the default), -> 256 cells total.
+
+Features to add:
+================
+CSS styling for the page, color selector for canvas background and "brush".
