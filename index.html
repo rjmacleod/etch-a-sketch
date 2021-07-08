@@ -12,16 +12,11 @@
             margin: 2vh;
             display: grid;
             border-collapse: collapse;
-            /*
-            grid-template-columns: repeat(16, 6vh);
-            grid-template-rows: repeat(16, 6vh);
-            */
             justify-content: center;
         }
         .cell {
             box-sizing: border-box;
             aspect-ratio: 1 / 1;
-            /*border: 1px solid rgb(17, 39, 39);*/
             background: rgb(245, 225, 209);
             font-size: small;
             text-align: center;
@@ -48,26 +43,11 @@
 
         // Generate grid
 
-        // let cellsPerSide = 16;
-
-        // for(let i = 0; i<(cellsPerSide*cellsPerSide); i++) {
-        //     const div = document.createElement('div');
-        //     div.classList.add('cell');
-        //     container.appendChild(div);
-        // }
-        // let vhPerCell = Math.floor(100/cellsPerSide);
-        // container.setAttribute('style',
-        //                         `grid-template-columns: repeat(${cellsPerSide}, ${vhPerCell}vh);
-        //                          grid-template-rows: repeat(${cellsPerSide}, ${vhPerCell}vh)`);
-
-        // const cells = document.querySelectorAll('.cell');
-        // cells.forEach(cell => cell.addEventListener('mouseover', applyColorOnHover));
-        //removeGrid(cellsPerSide);
         generateGrid(16);
 
         // Reset button
 
-        reset.addEventListener('click', resetPage)
+        reset.addEventListener('click', resetPage);
 
         // Helper functions
 
@@ -100,7 +80,7 @@
             cells = document.querySelectorAll('.cell');
             cells.forEach(cell => cell.addEventListener('mouseover', applyColorOnHover));
             // Set up CSS grid to display cells
-            let vhPerCell = Math.floor(100/cellsPerSide);
+            let vhPerCell = 90/(cellsPerSide);
             container.setAttribute('style',
                         `grid-template-columns: repeat(${cellsPerSide}, ${vhPerCell}vh);
                          grid-template-rows: repeat(${cellsPerSide}, ${vhPerCell}vh)`);
