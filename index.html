@@ -17,7 +17,7 @@
         .cell {
             box-sizing: border-box;
             aspect-ratio: 1 / 1;
-            background: rgb(245, 225, 209);
+            background: rgb(243, 243, 243);
             font-size: small;
             text-align: center;
         }
@@ -55,6 +55,34 @@
             this.classList.add('colorCell');
         }
 
+        function randomColorValue() {
+            return Math.floor(Math.random()*255);
+        }
+
+        function randomColor() {
+            return `rgba(${randomColorValue()}, ${randomColorValue()},
+                         ${randomColorValue()}, ${(Math.random()*(0.8)+.1).toFixed(1)})`;
+        }
+
+        function applyRandomColorOnHover() {
+            if(this.style.background === '') {
+                this.style.background = randomColor();
+            }
+            else {
+                let styleLength = this.style.background.length;
+                let alphaValue = this.style.background.slice(styleLength - 29, styleLength - 26);
+                let darkerColor = this.style.background.slice(0, styleLength - 29);
+                darkerColor += `${darkerAlpha(alphaValue)})`;
+                this.style.background = darkerColor;
+            }
+        }
+
+        function darkerAlpha(currentAlpha) {
+            currentAlpha = Number(currentAlpha);
+            if(currentAlpha === 1) return 1;
+            else return currentAlpha + 0.1;
+        }
+
         function resetPage() {
             let cellsPerSide = 0;
             while(cellsPerSide < 4 || cellsPerSide > 100) {
@@ -78,7 +106,8 @@
             }
             // Add event listener for each cell
             cells = document.querySelectorAll('.cell');
-            cells.forEach(cell => cell.addEventListener('mouseover', applyColorOnHover));
+            //cells.forEach(cell => cell.addEventListener('mouseover', applyColorOnHover));
+            cells.forEach(cell => cell.addEventListener('mouseover', applyRandomColorOnHover));
             // Set up CSS grid to display cells
             let vhPerCell = 90/(cellsPerSide);
             container.setAttribute('style',
